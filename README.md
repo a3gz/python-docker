@@ -15,7 +15,7 @@ Suppose we have our project under `/path/to-my/project`.
 
 To run the included `hello-wordl.py` file, assuming for a moment that our project sits on `/path/to/project` this is how we run the script: 
 
-    docker run --rm -it -v /path/to/project:/app python hello-wordl.py
+    docker run --rm -it -v /path/to/project:/app python hello-world.py
 
 I like to work with batch files or shell scripts so I don't have to type the whole command every time.
 
