@@ -22,3 +22,5 @@ I like to work with batch files or shell scripts so I don't have to type the who
 ## Final words
 
 This approach is meant to be used for learning purposes only.
+
+If you are interested in using this pacakge to explore Machine Learning with SciKit Learn, you might want to uncomment from Dockerfile everything betweeen `SciKitLearn.begin` and `SciKitLearn.end`. Actually, only `RUN pip install -U scikit-learn` is needed.
