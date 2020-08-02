@@ -19,6 +19,13 @@ To run the included `hello-wordl.py` file, assuming for a moment that our projec
 
 I like to work with batch files or shell scripts so I don't have to type the whole command every time.
 
-## Final words
+## Machine Learning with SciKit Learn
 
-This approach is meant to be used for learning purposes only.
+Dockerfile is SciKit Learn ready just uncomment this line:
+
+    RUN pip install -U scikit-learn
+
+Read more at https://scikit-learn.org/stable/install.html
+
+
+**This approach is meant to be used for learning purposes only.**
