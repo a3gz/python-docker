@@ -1,10 +1,9 @@
-FROM alpine
+# Use a base image with Linux installed
+FROM ubuntu:latest
 FROM python:3.7
 
-ENV APP_HOME /app
-
+ENV APP_HOME /home
 COPY requirements.txt $APP_HOME/
-
 RUN pip install --upgrade pip 
 
 # SciKitLearn.begin
@@ -17,4 +16,12 @@ RUN pip install --upgrade pip
 
 WORKDIR $APP_HOME
 
-ENTRYPOINT [ "python3"]
+
+# Install necessary packages
+RUN apt-get update && \
+    apt-get install -y \
+    bash \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the default command to start bash
+CMD ["/bin/bash"]
