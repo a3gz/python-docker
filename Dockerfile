@@ -1,27 +1,17 @@
 # Use a base image with Linux installed
-FROM ubuntu:latest
-FROM python:3.7
+FROM ubuntu:22.04
 
-ENV APP_HOME /home
-COPY requirements.txt $APP_HOME/
-RUN pip install --upgrade pip 
+ENV WORKDIR /workdir
 
-# SciKitLearn.begin
-# https://scikit-learn.org/stable/install.html
-# RUN pip install -U scikit-learn
-# RUN python3 -m pip show scikit-learn # to see which version and where scikit-learn is installed
-# RUN python3 -m pip freeze # to see all packages installed in the active virtualenv
-# RUN python3 -c "import sklearn; sklearn.show_versions()"
-# SciKitLearn.end
-
-WORKDIR $APP_HOME
-
+WORKDIR $WORKDIR
 
 # Install necessary packages
-RUN apt-get update && \
-    apt-get install -y \
-    bash \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+  && apt-get install -y bash \
+  && apt-get install -y python3-pip \
+  && pip install --upgrade pip \
+  && rm -rf /var/lib/apt/lists/*
+
 
 # Set the default command to start bash
 CMD ["/bin/bash"]
